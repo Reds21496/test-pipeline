@@ -1,12 +1,27 @@
+// Uses Declarative syntax to run commands inside a container.
 pipeline {
-  agent { label 'default' }
-  stages {
-   stage("Adding/Modifying secrets") {
-      steps {
-        script {
-          sh "echo 'hola'"
+    agent {
+        kubernetes {
+            yaml '''
+            apiVersion: v1
+            kind: Pod
+            spec:
+            containers:
+            - name: shell
+                image: ubuntu
+                command:
+                - sleep
+                args:
+                - infinity
+            '''
+            defaultContainer 'shell'
         }
-      }
     }
-  }
+    stages {
+        stage('Main') {
+            steps {
+                sh 'ls -la'
+            }
+        }
+    }
 }
