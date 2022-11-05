@@ -11,10 +11,10 @@ echo $SECRET_NAME
 FORMATED_SN=$(echo $SECRET_NAME | sed -e 's/[^a-zA-Z0-9]/_/g' -e 's/[0-9]//g')
 
 # All letters are transformed to upper case
-FORMATED_SN=$(echo ${SECRET_NAME^^})
+FORMATED_SN=$(echo ${FORMATED_SN^^})
 
 echo "Secret name:"
-echo $SECRET_NAME
+echo $FORMATED_SN
 
 echo "Secret value:"
 echo $SECRET_VALUE
