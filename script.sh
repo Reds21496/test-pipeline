@@ -7,15 +7,18 @@ ls -lart
 echo "Checking secret name..."
 echo $SECRET_NAME
 
-# All symbols are replaced with underscores and all numbers are removed
+# All symbols are replaced with underscores and all numbers are removed from the secret name
 FORMATED_SN=$(echo $SECRET_NAME | sed -e 's/[^a-zA-Z0-9]/_/g' -e 's/[0-9]//g')
 
-# All letters are transformed to upper case
+# All letters are transformed to upper case in the secret name
 FORMATED_SN=$(echo ${FORMATED_SN^^})
+
+# Removing any white space in the value from the secret value
+FORMATED_SV=$(echo $SECRET_VALUE | tr -d '[:space:]')
 
 echo "Secret name:"
 echo $FORMATED_SN
 
 echo "Secret value:"
-echo $SECRET_VALUE
+echo $FORMATED_SV
 
