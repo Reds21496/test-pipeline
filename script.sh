@@ -22,3 +22,10 @@ echo $FORMATED_SN
 echo "Secret value:"
 echo $FORMATED_SV
 
+grep $FORMATED_SN secrets.txt
+if [ $? -eq 0 ]; then
+   echo "The secret was found"
+else
+   echo "The secret was not found"
+fi
+
