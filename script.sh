@@ -13,7 +13,7 @@ FORMATED_SN=$(echo $SECRET_NAME | sed -e 's/[^a-zA-Z0-9]/_/g' -e 's/[0-9]//g')
 # All letters are transformed to upper case in the secret name
 FORMATED_SN=$(echo ${FORMATED_SN^^})
 
-# Removing any white space in the value from the secret value
+# Removing any white space in the secret value
 FORMATED_SV=$(echo $SECRET_VALUE | tr -d '[:space:]')
 
 echo "Secret name:"
@@ -29,6 +29,8 @@ if [ $? -eq 0 ]; then
 fi
 
 echo "$FORMATED_SN: $FORMATED_SV" >> secrets.txt
+
+sort -o secrets.txt secrets.txt
 
 cat secrets.txt
 
