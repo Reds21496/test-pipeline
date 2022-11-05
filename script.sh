@@ -28,7 +28,7 @@ if [ $? -eq 0 ]; then
    sed -i "s/$CURRENT_SECRET//" secrets.txt
 fi
 
-echo "$FORMATED_SN: $FORMATED_SV" >> secrets.txt
+echo "\n$FORMATED_SN: $FORMATED_SV" >> secrets.txt
 
 sort -o secrets.txt secrets.txt
 
