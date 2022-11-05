@@ -20,7 +20,6 @@ spec:
     stages {
         stage('Adding/Modifying secrets') {
             steps {
-                sh 'ls -la'
                 sh "chmod +x ./script.sh"
                 sh "./script.sh"
             }
