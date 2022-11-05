@@ -30,4 +30,6 @@ fi
 
 echo "$FORMATED_SN: $FORMATED_SV" >> secrets.txt
 
+cat secrets.txt
+
 
