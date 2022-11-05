@@ -24,8 +24,10 @@ echo $FORMATED_SV
 
 grep $FORMATED_SN secrets.txt
 if [ $? -eq 0 ]; then
-   echo "The secret was found"
-else
-   echo "The secret was not found"
+   CURRENT_SECRET=$(grep $FORMATED_SN secrets.txt)
+   sed -i "s/$CURRENT_SECRET//" secrets.txt
 fi
+
+echo "$FORMATED_SN: $FORMATED_SV" >> secrets.txt
+
 
